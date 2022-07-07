@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+        <a href="#" class="pull-left"><img class="" src="C:\Users\Sujeet Nanavala\Downloads\My project.png" alt="logo"></a> 
+        <div class="container">
+            <a href="#" class="navbar-brand">Placement's Supplement System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link px-3">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('placements')}}" class="nav-link px-3">Placement Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('profile')}}" class="nav-link px-3">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('logout')}}" class="nav-link px-3">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .carousel{
+            margin-bottom: 4rem;
+        }
+        .carousel-caption{
+            bottom: 3rem;
+            z-index: 10;
+        }
+        .carousel-item{
+            height: 32rem;
+            /* min-height: 32rem;
+            background-color: #343a40; */
+        }
+        .carousel-item > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 32rem;
+        }
+
+    </style>
+    <!--Top-->
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Welcome to the Dashboard</h1>
+                        <p>The Placement Supplement System acts as an interface between campus recruitment cell and students,students can get the details and circulars regarding ongoing placements</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Sign</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Example Heading</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquid animi dolorem at libero sed, minima soluta modi facilis? Nostrum dignissimos harum labore, voluptate doloremque consectetur magni quisquam perspiciatis dolorum.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Sign</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+                <div class="container">
+                    <div class="carousel-caption ">
+                        <h1>Example Heading</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquid animi dolorem at libero sed, minima soluta modi facilis? Nostrum dignissimos harum labore, voluptate doloremque consectetur magni quisquam perspiciatis dolorum.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Sign</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!--boxes-->
+    <section class="p-5 ">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                            </div>
+                            <h3 class="card-title mb-3">Ongoing Drives</h3>
+                            <p class="class-text">Get Information about the Ongoing Campus Placements in the college.</p>
+                            <a href="#" class="btn btn-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                            </div>
+                            <h3 class="card-title mb-3">Upcoming Companies</h3>
+                            <p class="class-text">Get Information about the Upcoming Campus Placements in the college.</p>
+                            <a href="#" class="btn btn-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                            </div>
+                            <h3 class="card-title mb-3">Previous Year Records</h3>
+                            <p class="class-text">Get Information about the Previous year records from the college.</p>
+                            <a href="{{url_for('previous_year_records')}}" class="btn btn-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p-3">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md d-flex align-items-center justify-content-center" >
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                            </div>
+                            <h3 class="card-title mb-3">Eligibility Criteria</h3>
+                            <p class="class-text">Check the Eligibilty Criteria based on your Marks.</p>
+                            <a href="#" class="btn btn-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
