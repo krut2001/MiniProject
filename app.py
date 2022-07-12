@@ -49,6 +49,7 @@ class LoginForm(FlaskForm):
     submit=SubmitField('Sign Up')
 
 
+
 @app.route('/')
 def home():
     return render_template('home.html')
