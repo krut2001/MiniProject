@@ -97,16 +97,13 @@ def register():
         if u:
             return False
         return True
-    
     if not v(form.username):
         return "Username already taken"
-    
     if form.validate_on_submit():
         new_user=User(username=form.username.data,password=form.password.data)
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('login'))
-    
     return render_template('register.html',form=form)
 
 if(__name__=='__main__'):
