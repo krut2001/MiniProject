@@ -36,129 +36,47 @@
             </div>
         </div>
     </nav>
-    <!--menu bar end-->
-    <style>
-        /* .carousel{
-            margin-bottom: 4rem;
-        } */
-        .carousel-caption{
-            bottom: 3rem;
-            z-index: 10;
-        }
-        .carousel-item{
-            height: 32rem;
-            /* min-height: 32rem;
-            background-color: #343a40; */
-        }
-        .carousel-item > img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            height: 32rem;
-        }
-
-    </style>
-    <!--Top-->
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <!--end of menu bar-->
+    <div class="tab-pane" id="f2">
+        <div class="text-center">
+            <h1>Upcoming Placements</h1>
+            <table class="table table-hover course-list-table text-center" style="font-size:12px;">
+                <thead>
+                    <tr>
+                        <TH>COMPANY</TH>
+                        <TH>CGPA</TH>
+                        <TH>PACKAGE</TH>
+                        <TH>DATE</TH>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in data %}
+                        <tr>
+                            <td>{{d.name}}</td>
+                            <td>{{d.cgpa}}</td>
+                            <td>{{d.package}}</td>
+                            <td>{{d.date}}</td>
+                        </tr>
+                    {% endfor %}
+                    {% for d in data1 %}
+                        <tr>
+                            <td>{{d.name}}</td>
+                            <td>{{d.cgpa}}</td>
+                            <td>{{d.package}}</td>
+                            <td>{{d.date}}</td>
+                        </tr>
+                    {% endfor %}
+                    {% for d in data2 %}
+                        <tr>
+                            <td>{{d.name}}</td>
+                            <td>{{d.cgpa}}</td>
+                            <td>{{d.package}}</td>
+                            <td>{{d.date}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
-                    <img src="https://www.4cornerresources.com/wp-content/uploads/2020/11/Job-interview-with-two-interviewers-scaled.jpeg" alt="First slide">
-                </svg>
-                
-                <div class="container ">
-                    <div class="carousel-caption" style="background-color: rgba(88, 88, 88, 0.4);">
-                        <h1 >Welcome to the Dashboard</h1>
-                        <p >The Placement Supplement System acts as an interface between campus recruitment cell and students,students can get the details and circulars regarding ongoing placements</p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
-                    <img src="https://i.pinimg.com/originals/df/c7/c1/dfc7c144bda86ab88d14980926c33bdf.jpg" alt="Second slide">
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption" style="background-color: rgba(150, 148, 148, 0.4);">
-                        <h1></h1>
-                        <h3>The perfect place to start your placement preparation.</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-    <!--boxes-->
-    <section class="p-5 ">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md">
-                    <div class="card bg-dark text-light">
-                        <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                            </div>
-                            <h3 class="card-title mb-3">Ongoing Drives</h3>
-                            <p class="class-text">Get Information about the Ongoing Campus Placements in the college.</p>
-                            <a href="{{url_for('ongoing')}}" class="btn btn-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="card bg-dark text-light">
-                        <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                            </div>
-                            <h3 class="card-title mb-3">Upcoming Companies</h3>
-                            <p class="class-text">Get Information about the Upcoming Campus Placements in the college.</p>
-                            <a href="{{url_for('upcoming')}}" class="btn btn-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="card bg-dark text-light">
-                        <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                            </div>
-                            <h3 class="card-title mb-3">Previous Year Records</h3>
-                            <p class="class-text">Get Information about the Previous year records from the college.</p>
-                            <a href="{{url_for('previous_year_records')}}" class="btn btn-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="p-3">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md d-flex align-items-center justify-content-center" >
-                    <div class="card bg-dark text-light">
-                        <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                            </div>
-                            <h3 class="card-title mb-3">Eligibility Criteria</h3>
-                            <p class="class-text">Check the Eligibilty Criteria based on your Marks.</p>
-                            <a href="{{url_for('eligibility')}}" class="btn btn-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </body>
 </html>
-
-
-
