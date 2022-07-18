@@ -243,7 +243,7 @@ def ongoing():
 def eligibility():
     form=Eligibility()
     if form.validate_on_submit():
-        if float(form.cgpa.data)>10 or float(form.cgpa.data)<0:
+        if float(form.cgpa.data)>10 or float(form.cgpa.data)<4:
             flash('Invalid CGPA','info')
             return redirect(url_for('eligibility'))
         data=Companies.query.filter(Companies.cgpa<=form.cgpa.data).all()
@@ -257,6 +257,9 @@ def eligibility():
 def eligibility_admin():
     form=Eligibility()
     if form.validate_on_submit():
+        if float(form.cgpa.data)>10 or float(form.cgpa.data)<4:
+            flash('Invalid CGPA','info')
+            return redirect(url_for('eligibility'))
         data=Companies.query.filter(Companies.cgpa<=form.cgpa.data).all()
         return render_template('eligibility_admin.html',data=data,form=form)
     return render_template('eligibility_admin.html',form=form)
