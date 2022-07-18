@@ -56,18 +56,17 @@ class AddCompany(FlaskForm):
 class RegisterForm(FlaskForm):
     username=StringField(validators=[InputRequired(),Length(min=4,max=20)], render_kw={"placeholder": "Username"})
 
-
     rollno=StringField(validators=[InputRequired(),Length(min=4,max=20)], render_kw={"placeholder": "Rollno"})
 
     dob=StringField(validators=[InputRequired(),Length(min=4,max=20)], render_kw={"placeholder": "YYYY-MM-DD"})
 
-    year=StringField(validators=[InputRequired(),Length(min=1,max=1)], render_kw={"placeholder": "Year"})
+    year=StringField(validators=[InputRequired(),Length(min=1,max=4)], render_kw={"placeholder": "Year"})
 
     branch=StringField(validators=[InputRequired(),Length(min=4,max=30)], render_kw={"placeholder": "Branch"})
 
     mail=StringField(validators=[InputRequired(),Length(min=4,max=30)], render_kw={"placeholder": "Mail"})
 
-    phone=StringField(validators=[InputRequired(),Length(min=4,max=20)], render_kw={"placeholder": "Phone"})
+    phone=StringField(validators=[InputRequired(),Length(min=10,max=10)], render_kw={"placeholder": "Phone"})
     
     password=PasswordField(validators=[InputRequired(),Length(min=4,max=20)], render_kw={"placeholder": "Password"})
 
@@ -77,7 +76,7 @@ class RegisterForm(FlaskForm):
         u=User.query.filter_by(username=username.data).first()
         
         if u:
-            raise ValidationError('Username already taken')
+            flash('Username already taken')
 
 class LoginForm(FlaskForm):
     username=StringField(validators=[InputRequired(),Length(min=4,max=20)], render_kw={"placeholder": "Username"})
@@ -101,6 +100,8 @@ def login():
         if user and user.password==form.password.data:
             login_user(user)
             return redirect(url_for('dashboard'))
+        else:
+            flash('Invalid username or password')
     return render_template('login.html',form=form)
 
 
@@ -242,6 +243,9 @@ def ongoing():
 def eligibility():
     form=Eligibility()
     if form.validate_on_submit():
+        if float(form.cgpa.data)>10 or float(form.cgpa.data)<0:
+            flash('Invalid CGPA','info')
+            return redirect(url_for('eligibility'))
         data=Companies.query.filter(Companies.cgpa<=form.cgpa.data).all()
         return render_template('eligibility.html',data=data,form=form)
     return render_template('eligibility.html',form=form)
@@ -269,7 +273,7 @@ def register():
         return True
     if not v(form.username):
         flash('Username already taken')
-        return "Username already taken"
+        return redirect(url_for('register'))
     if form.validate_on_submit():
         new_user=User(username=form.username.data,rollno=form.rollno.data,dob=form.dob.data,year=form.year.data,branch=form.branch.data,mail=form.mail.data,phone=form.phone.data,password=form.password.data)
         db.session.add(new_user)
